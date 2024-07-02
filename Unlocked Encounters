@@ -1,0 +1,6 @@
+UnlockedEncounters2023 = 
+CALCULATE (
+    COUNTROWS('Page'), 
+    YEAR('Page'[Appointment Date]) = 2023,
+    'Page'[Chart Lock Status] = "Unlocked"
+)
