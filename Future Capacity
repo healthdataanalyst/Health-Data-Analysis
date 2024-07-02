@@ -1,0 +1,7 @@
+1Future Capacity = CALCULATE (
+    COUNTROWS('relevant_appointments'), 
+    WEEKNUM('relevant_appointments'[appointment_date]) = 27,
+    YEAR('relevant_appointments'[appointment_date]) = 2024
+)
+-
+SUM('Provider Capacity Sheet'[Provider Expected Capacity])
