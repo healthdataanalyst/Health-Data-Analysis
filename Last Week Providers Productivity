@@ -1,0 +1,45 @@
+W Billable = 
+CALCULATE (
+    COUNTROWS ( 'Page' ),
+    FILTER (
+        'Page',
+        WEEKNUM ( 'Page'[Appointment Date] ) = 26 &&
+        'Page'[BNB] = "Bill"
+    )
+)
+~~ W NBillable = 
+CALCULATE (
+    COUNTROWS ( 'Page' ),
+    FILTER (
+        'Page',
+        WEEKNUM ( 'Page'[Appointment Date] ) = 26 &&
+        'Page'[BNB] = "Non Bill"
+    )
+)
+~~
+W Ofc V = 
+CALCULATE (
+    COUNTROWS ( 'Page' ),
+    FILTER (
+        'Page',
+        WEEKNUM ( 'Page'[Appointment Date] ) = 26 &&
+        'Page'[Office Visit Tele Visit] = "Office Visit"
+    )
+)
+~~
+W Tele V = 
+CALCULATE (
+    COUNTROWS ( 'Page' ),
+    FILTER (
+        'Page',
+        WEEKNUM ( 'Page'[Appointment Date] ) = 26 &&
+        'Page'[Office Visit Tele Visit] = "Tele Visit"
+    )
+)
+~~
+W Total Weekly = CALCULATE (
+    COUNTROWS('Page'),
+    WEEKNUM('Page'[Appointment Date]) = 26, 
+    YEAR('Page'[Appointment Date]) = 2024
+)
+
