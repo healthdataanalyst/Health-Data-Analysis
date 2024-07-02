@@ -1,0 +1,57 @@
+F Billable = 
+CALCULATE (
+    COUNTROWS ( 'Page' ),
+    FILTER (
+        'Page',
+        'Page'[Appointment Date] >= DATE ( 2023, 7, 1 ) &&
+        'Page'[Appointment Date] < DATE ( 2024, 7, 1 ) &&
+        'Page'[BNB] = "Bill"
+    )
+)
+//Year Month Date
+
+F Non Billable = 
+CALCULATE (
+    COUNTROWS ( 'Page' ),
+    FILTER (
+        'Page',
+        'Page'[Appointment Date] >= DATE ( 2023, 7, 1 ) &&
+        'Page'[Appointment Date] < DATE ( 2024, 7, 1 ) &&
+        'Page'[BNB] = "Non Bill"
+    )
+)
+//Year Month Date
+
+F Ofc V = 
+CALCULATE (
+    COUNTROWS ( 'Page' ),
+    FILTER (
+        'Page',
+        'Page'[Appointment Date] >= DATE ( 2023, 7, 1 ) &&
+        'Page'[Appointment Date] < DATE ( 2024, 7, 1 ) &&
+        'Page'[Office Visit Tele Visit] = "Office Visit"
+    )
+)
+//Year Month Date
+
+F Tele V = 
+CALCULATE (
+    COUNTROWS ( 'Page' ),
+    FILTER (
+        'Page',
+        'Page'[Appointment Date] >= DATE ( 2023, 7, 1 ) &&
+        'Page'[Appointment Date] < DATE ( 2024, 7, 1 ) &&
+        'Page'[Office Visit Tele Visit] = "Tele Visit"
+    )
+)
+//Year Month Date
+
+F Total Fiscal Year = 
+CALCULATE (
+    COUNTROWS ( 'Page' ),
+    FILTER (
+        'Page',
+        'Page'[Appointment Date] >= DATE(2023, 7, 1) &&
+        'Page'[Appointment Date] < DATE(2024, 7, 1)
+    )
+)
