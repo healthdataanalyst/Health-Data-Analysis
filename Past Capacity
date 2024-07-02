@@ -1,0 +1,7 @@
+1Past Capacity = CALCULATE (
+    COUNTROWS('relevant_visits'), 
+    WEEKNUM('relevant_visits'[visit_date]) = 26,
+    YEAR('relevant_visits'[visit_date]) = 2024
+)
+-
+SUM('Provider Capacity Sheet'[Provider Expected Capacity])
